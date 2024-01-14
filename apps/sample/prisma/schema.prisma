@@ -8,12 +8,19 @@ generator client {
 }
 
 model User {
+  calculateProperties Json?
+  createdAt           DateTime @default(now())
+  firstName           String?
+  id                  String   @id @default(cuid())
+  lastName            String?
+  password            String
+  roles               Json
+  updatedAt           DateTime @updatedAt
+  username            String   @unique
+}
+
+model Test {
   createdAt DateTime @default(now())
-  firstName String?
   id        String   @id @default(cuid())
-  lastName  String?
-  password  String
-  roles     Json
   updatedAt DateTime @updatedAt
-  username  String   @unique
 }
